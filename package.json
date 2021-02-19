@@ -1,0 +1,14 @@
+{
+  "name": "primeiro-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/atilara/primeiro-server.git",
+  "author": "Átila Rodrigues <atila.rodriguesal@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "editorconfig": "^0.15.3",
+    "express": "^4.17.1",
+    "prettier": "^2.2.1"
+  },
+  "type": "module"
+}
