@@ -5,9 +5,13 @@
   "repository": "https://github.com/atilara/primeiro-server.git",
   "author": "Átila Rodrigues <atila.rodriguesal@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
   "dependencies": {
     "editorconfig": "^0.15.3",
     "express": "^4.17.1",
+    "nodemon": "^2.0.7",
     "prettier": "^2.2.1"
   },
   "type": "module"
