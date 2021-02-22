@@ -11,7 +11,11 @@ app.use(express.static('public'));
 // Rota do tipo GET e seu caminho, recebendo request e response como params
 app.get('/', (req, res) => {
   // Renderizando algo na tela utilizando o EJS
-  res.render('index.ejs');
+  res.render('index');
+});
+
+app.get('/ask', (req, res) => {
+  res.render('ask');
 });
 
 app.listen(5500, (error) => {
