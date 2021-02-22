@@ -6,14 +6,12 @@ const app = express();
 
 // Definindo pro express que o EJS vai ser utilizado pra renderizar HTML
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 // Rota do tipo GET e seu caminho, recebendo request e response como params
-app.get('/:name', (req, res) => {
-  const name = req.params.name;
+app.get('/', (req, res) => {
   // Renderizando algo na tela utilizando o EJS
-  res.render('index.ejs', {
-    name: name,
-  });
+  res.render('index.ejs');
 });
 
 app.listen(5500, (error) => {
