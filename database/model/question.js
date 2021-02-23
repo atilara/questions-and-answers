@@ -18,3 +18,5 @@ const question = connection.define('question', {
 // Caso ela já exista, ela não será recriada forçadamente
 // .then vazio será executado caso a tabela seja criada com sucesso
 question.sync({ force: false }).then(() => {});
+
+module.exports = question;

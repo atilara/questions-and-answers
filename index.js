@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const connection = require('./database/database');
 // O simples fato de importar o model faz com que o sync seja executado
-const questionModel = require('./database/model/question');
+const question = require('./database/model/question');
 // Conexão com a base de dados, tenta logar com o mysql
 // then é chamado caso a conexão dê certo
 // catch é chamado caso dê erro
@@ -45,9 +45,17 @@ app.post('/save_question', (req, res) => {
   // O body é disponibilizado pelo bodyParser
   var title = req.body.title;
   var description = req.body.description;
-  res.send(
-    'Formulário recebido! Título: ' + title + ' | Descrição: ' + description,
-  );
+  // Método responsável por fazer inserção de dados no banco, utilizando o
+  // model do banco de dados
+  question
+    .create({
+      title: title,
+      description: description,
+    })
+    .then(() => {
+      res.redirect('/');
+    });
+  // Quando a pergunta é criada, o usuário é redirecionado para a home
 });
 
 app.listen(5500, (error) => {
