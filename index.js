@@ -1,5 +1,19 @@
-import express from 'express';
-import bodyParser from 'body-parser';
+const express = require('express');
+const bodyParser = require('body-parser');
+const connection = require('./database/database');
+
+// Conexão com a base de dados, tenta logar com o mysql
+// then é chamado caso a conexão dê certo
+// catch é chamado caso dê erro
+connection
+  .authenticate()
+  .then(() => {
+    console.log('Conexão realizada');
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
 // Realizando uma instância do express em uma constante,
 // para evitar sobrescrevê-la
 const app = express();

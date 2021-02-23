@@ -13,8 +13,9 @@
     "editorconfig": "^0.15.3",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "mysql2": "^2.2.5",
     "nodemon": "^2.0.7",
-    "prettier": "^2.2.1"
-  },
-  "type": "module"
+    "prettier": "^2.2.1",
+    "sequelize": "^6.5.0"
+  }
 }
