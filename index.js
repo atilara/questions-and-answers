@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const connection = require('./database/database');
-
+// O simples fato de importar o model faz com que o sync seja executado
+const questionModel = require('./database/model/question');
 // Conexão com a base de dados, tenta logar com o mysql
 // then é chamado caso a conexão dê certo
 // catch é chamado caso dê erro
