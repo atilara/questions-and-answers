@@ -66,6 +66,23 @@ app.post('/save_question', (req, res) => {
   // Quando a pergunta é criada, o usuário é redirecionado para a home
 });
 
+app.get('/question/:id', (req, res) => {
+  var id = req.params.id;
+  // Método para buscar um dado no banco com uma condição
+  // SELECT questions WHERE id = minhaVariavelId
+  question.findOne({ where: { id: id } }).then((question) => {
+    // Se a pergunta for encontrada ele renderiza a tela da pergunta
+    if (question != undefined) {
+      res.render('question', {
+        // Passando a variável
+        question: question,
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+});
+
 app.listen(5500, (error) => {
   if (error) console.log('Ocorreu um erro');
   else console.log('Servidor iniciado');
