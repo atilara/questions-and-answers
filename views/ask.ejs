@@ -1,21 +1,19 @@
 <%- include('partials/header'); -%>
-  <div class="container">
-    <section class="mt-3 card">
-      <div class="card-header">
-        <h3>Realizar pergunta:</h3>
-      </div>
-      <div class="card-body">
-        <!-- Define o tipo de requisição para POST e a rota para onde os dados são enviados -->
-        <form method="POST" action="/save_question">
-          <label>Título</label>
-          <!-- Name é utilizado para conseguir pegar os dados enviados no Backend -->
-          <input name="title" type="text" placeholder="Título" class="mt-1 form-control">
-          <label class="mt-3">Perguntar</label>
-          <!-- Utilização do name para enviar os dados para o backend -->
-          <textarea name="description" placeholder="Faça sua pergunta" class="mt-1 form-control"></textarea>
-          <button class="mt-3 btn btn-success">Perguntar</button>
-        </form>
-      </div>
-    </section>
-  </div>
+  <section class="mt-3 card">
+    <div class="card-header">
+      <h3>Realizar pergunta:</h3>
+    </div>
+    <div class="card-body">
+      <!-- Define o tipo de requisição para POST e a rota para onde os dados são enviados -->
+      <form method="POST" action="/save_question">
+        <label>Título</label>
+        <!-- Name é utilizado para conseguir pegar os dados enviados no Backend -->
+        <input name="title" type="text" placeholder="Título" class="mt-1 form-control">
+        <label class="mt-3">Perguntar</label>
+        <!-- Utilização do name para enviar os dados para o backend -->
+        <textarea name="description" placeholder="Faça sua pergunta" class="mt-1 form-control"></textarea>
+        <button class="mt-3 btn btn-success">Perguntar</button>
+      </form>
+    </div>
+  </section>
 <%- include('partials/footer'); -%>
