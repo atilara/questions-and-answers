@@ -1,4 +1,10 @@
 <%- include('partials/header'); -%>
   <h2> <%= question.title %> </h2>
   <p> <%= question.description %> </p>
+  <form method="POST" action="/reply">
+    <h3>Responda</h3>
+    <textarea name="body" placeholder="Digite sua resposta" class="form-control"></textarea>
+    <input type="hidden" name="question" value="<%= question.id %>">
+    <button type="submit" class="btn btn-dark">Responda</button>
+  </form>
 <%- include('partials/footer'); -%>

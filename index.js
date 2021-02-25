@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const connection = require('./database/database');
 // O simples fato de importar o model faz com que o sync seja executado
 const question = require('./database/model/question');
+const answer = require('./database/model/answer');
 // Conexão com a base de dados, tenta logar com o mysql
 // then é chamado caso a conexão dê certo
 // catch é chamado caso dê erro
@@ -81,6 +82,20 @@ app.get('/question/:id', (req, res) => {
       res.redirect('/');
     }
   });
+});
+
+app.post('/reply', (req, res) => {
+  var body = req.body.body;
+  var questionId = req.body.question;
+  answer
+    .create({
+      body: body,
+      id_question: questionId,
+    })
+    .then(() => {
+      // Usuário é redirecionado para a página da pergunta que ele respondeu
+      res.redirect('/question/' + questionId);
+    });
 });
 
 app.listen(5500, (error) => {
