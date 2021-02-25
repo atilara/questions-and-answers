@@ -1,10 +1,23 @@
 <%- include('partials/header'); -%>
-  <h2> <%= question.title %> </h2>
-  <p> <%= question.description %> </p>
-  <form method="POST" action="/reply">
-    <h3>Responda</h3>
-    <textarea name="body" placeholder="Digite sua resposta" class="form-control"></textarea>
-    <input type="hidden" name="question" value="<%= question.id %>">
-    <button type="submit" class="btn btn-dark">Responda</button>
-  </form>
+  <div class="mt-3 card">
+    <div class="card-body">
+      <h2> <%= question.title %> </h2>
+      <p> <%= question.description %> </p>
+    </div>
+    <div class="card-footer">
+      <form method="POST" action="/reply">
+        <h3>Responda</h3>
+        <textarea name="body" placeholder="Digite sua resposta" class="form-control"></textarea>
+        <input type="hidden" name="question" value="<%= question.id %>">
+        <button type="submit" class="mt-2 btn btn-dark">Responda</button>
+      </form>
+      <% answers.forEach(answer => { %>
+        <div class="mt-3 card">
+          <div class="card-body">
+            <%= answer.body %>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
 <%- include('partials/footer'); -%>

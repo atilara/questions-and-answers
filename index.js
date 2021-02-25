@@ -74,10 +74,19 @@ app.get('/question/:id', (req, res) => {
   question.findOne({ where: { id: id } }).then((question) => {
     // Se a pergunta for encontrada ele renderiza a tela da pergunta
     if (question != undefined) {
-      res.render('question', {
-        // Passando a variável
-        question: question,
-      });
+      // Retorna todas as respostas que sejam relacionadas a pergunta que está aberta
+      answer
+        .findAll({
+          where: { id_question: question.id },
+          order: [['id', 'DESC']],
+        })
+        .then((answers) => {
+          res.render('question', {
+            // Passando as variáveis
+            question: question,
+            answers: answers,
+          });
+        });
     } else {
       res.redirect('/');
     }
