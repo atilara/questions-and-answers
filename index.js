@@ -34,8 +34,8 @@ app.get('/', (req, res) => {
   // O método findAll pega todas as perguntas da tabela e manda
   // as perguntas para o questions
   // O JSON adicionado ao findAll serve para que o sequelize retorne as perguntas
-  // e nada mais
-  question.findAll({ raw: true }).then((questions) => {
+  // e nada mais. O order é recebe um array que define a regra de ordenação
+  question.findAll({ raw: true, order: [['id', 'DESC']] }).then((questions) => {
     // Renderizando o view e passando as perguntas para as telas
     res.render('index', {
       questions: questions,
