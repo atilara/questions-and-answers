@@ -31,8 +31,16 @@ app.use(bodyParser.json());
 
 // Rota do tipo GET e seu caminho, recebendo request e response como params
 app.get('/', (req, res) => {
-  // Renderizando algo na tela utilizando o EJS
-  res.render('index');
+  // O método findAll pega todas as perguntas da tabela e manda
+  // as perguntas para o questions
+  // O JSON adicionado ao findAll serve para que o sequelize retorne as perguntas
+  // e nada mais
+  question.findAll({ raw: true }).then((questions) => {
+    // Renderizando o view e passando as perguntas para as telas
+    res.render('index', {
+      questions: questions,
+    });
+  });
 });
 
 app.get('/ask', (req, res) => {
